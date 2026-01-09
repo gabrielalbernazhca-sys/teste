@@ -1,4 +1,4 @@
-[index.html](https://github.com/user-attachments/files/24536475/index.html)
+[index.html](https://github.com/user-attachments/files/24537025/index.html)
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -119,12 +119,38 @@
         /* Hero Section */
         .hero {
             padding: 100px 0 100px;
-            /* Dark Gray Gradient Background */
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            /* Updated to Dark Gray #2e2e2e as requested, mixed with slight transparency for depth */
+            background: linear-gradient(rgba(46, 46, 46, 0.95), rgba(30, 30, 30, 0.98));
             position: relative;
             overflow: hidden;
             color: #ffffff;
             text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Explicit path to background image using relative path */
+            background: url('./bg_smoke.png') no-repeat center center/cover;
+            background-size: 120%;
+            z-index: -1;
+            opacity: 0.4;
+            animation: pan-background 20s infinite alternate linear;
+        }
+
+        @keyframes pan-background {
+            0% {
+                background-position: 50% 50%;
+            }
+
+            100% {
+                background-position: 50% 60%;
+                transform: scale(1.1);
+            }
         }
 
         .hero .container {
@@ -152,6 +178,17 @@
             margin-right: auto;
         }
 
+        /* New Hero Main Image Style */
+        .hero-main-img {
+            margin-top: 40px;
+            max-width: 100%;
+            width: 300px;
+            /* Reduced width for balance */
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         @media (max-width: 600px) {
             .hero .headline {
                 font-size: 2.2rem;
@@ -162,7 +199,7 @@
             }
         }
 
-        /* Split Layout Restored for Images */
+        /* Split Layout */
         .split-layout {
             display: flex;
             flex-direction: column;
@@ -435,7 +472,12 @@
             <h1 class="headline">Você não fuma porque quer — o cigarro virou um hábito emocional</h1>
             <p class="subheadline">Um método simples de 21 dias para reduzir a ansiedade e quebrar o hábito do cigarro,
                 sem remédios e sem sofrimento.</p>
-            <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero parar de fumar</a>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:30px;">
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero parar de fumar</a>
+
+                <!-- NEW IMAGE 1: Below specific button as requested -->
+                <img src="./hero_book.png" alt="O Método 21 Dias Guia Digital" class="hero-main-img">
+            </div>
         </div>
     </header>
 
@@ -443,9 +485,9 @@
         <div class="container">
             <div class="split-layout">
                 <div class="image-box">
-                    <!-- IMAGE 1: Relief/Breathing - External URL (Updated) -->
-                    <img src="https://images.unsplash.com/photo-1527663884762-28df529c0e48?q=80&w=2670&auto=format&fit=crop"
-                        alt="Mulher respirando ar puro e aliviada" class="responsive-img shadow-img rounded">
+                    <!-- NEW IMAGE 2: Identification Section -->
+                    <img src="./hero.png" alt="Mulher respirando ar puro e aliviada"
+                        class="responsive-img shadow-img rounded">
                 </div>
                 <div class="content-box">
                     <h2>Você se identifica com isso?</h2>
@@ -495,9 +537,9 @@
         <div class="container">
             <div class="split-layout reverse">
                 <div class="image-box">
-                    <!-- IMAGE 2: Happy Family - External URL -->
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2670&auto=format&fit=crop"
-                        alt="Família feliz no parque" class="responsive-img shadow-img rounded">
+                    <!-- Adjusted path relative to root -->
+                    <img src="./family_happiness.png" alt="Família feliz no parque"
+                        class="responsive-img shadow-img rounded">
                 </div>
                 <div class="content-box">
                     <h2>Recupere sua liberdade e viva mais pela sua família</h2>
